@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Ironhorse Collective, LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e17;--bg2:#111827;--text:#e2e8f0;--text2:#94a3b8;--accent:#3b82f6;--gradient:linear-gradient(135deg,#3b82f6,#8b5cf6);--border:#1e293b}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--accent);text-decoration:none}.container{max-width:1200px;margin:0 auto;padding:0 24px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,23,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-size:1.5rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo span{color:var(--text);font-weight:400;font-size:.85rem;margin-left:4px}
+.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{color:var(--text2);font-size:.9rem;font-weight:500}
+.nav-cta{padding:10px 20px;background:var(--gradient);color:#fff;border-radius:8px;font-size:.85rem;font-weight:600}
+section{padding:100px 0}.hero{padding:160px 0 80px;text-align:center}
+.hero h1{font-size:3rem;font-weight:900;line-height:1.1;margin-bottom:20px}
+.hero h1 .gradient{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--text2);font-size:1.2rem;max-width:600px;margin:0 auto}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:60px}
+.contact-form{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:40px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:.9rem;font-weight:600;margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 18px;background:var(--bg);border:1px solid var(--border);border-radius:10px;color:#fff;font-size:.95rem;font-family:'Inter',sans-serif;outline:none;box-sizing:border-box}
+.form-group textarea{min-height:120px;resize:vertical}
+.btn-primary{display:inline-block;padding:16px 36px;background:var(--gradient);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;width:100%;box-sizing:border-box}
+.contact-info{display:flex;flex-direction:column;gap:32px}
+.info-block h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.info-block p{color:var(--text2);font-size:.95rem;line-height:1.7}
+.section-label{display:inline-block;padding:6px 16px;background:rgba(59,130,246,.1);color:var(--accent);border-radius:20px;font-size:.8rem;font-weight:600;margin-bottom:16px;border:1px solid rgba(59,130,246,.2)}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 0 24px;text-align:center;color:var(--text2);font-size:.85rem}
+@media(max-width:768px){.nav-links{display:none}.hero h1{font-size:2rem}.contact-grid{grid-template-columns:1fr}}
+</style></head><body>
+<nav><div class="container">
+<div class="logo">Ironhorse Collective<span>consulting</span></div>
+<ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul>
+<a href="contact.html" class="nav-cta">Get Started</a>
+</div></nav>
+<section class="hero"><div class="container">
+<h1>Let us Build Your <span class="gradient">Security Advantage</span></h1>
+<p>Book a free 30-minute strategy call. No commitment, no pressure — just a candid conversation about where you are and where you want to go.</p>
+</div></section>
+<section><div class="container">
+<div class="contact-grid">
+<form class="contact-form" onsubmit="event.preventDefault();alert('Thanks for reaching out! Our team will contact you within 24 hours.');this.reset();">
+<div class="form-group"><label>Full Name</label><input type="text" placeholder="Jane Smith" required></div>
+<div class="form-group"><label>Work Email</label><input type="email" placeholder="jane@company.com" required></div>
+<div class="form-group"><label>Company</label><input type="text" placeholder="Company name"></div>
+<div class="form-group"><label>What do you need help with?</label>
+<select><option>SOC2 Readiness</option><option>Fractional CISO</option><option>Customer Health Scoring</option><option>Revenue-Based Financing</option><option>Multiple Services</option><option>Something Else</option></select></div>
+<div class="form-group"><label>Tell us about your situation</label><textarea placeholder="Brief description of your company and what you are looking for..."></textarea></div>
+<button type="submit" class="btn-primary">Request Strategy Call</button>
+</form>
+<div class="contact-info">
+<div class="info-block"><div class="section-label">Email</div><h3>hello@ironhorsecollective.com</h3><p>We respond within 4 business hours.</p></div>
+<div class="info-block"><div class="section-label">Phone</div><h3>+1 (415) 555-0192</h3><p>Mon-Fri, 9am-6pm PT</p></div>
+<div class="info-block"><div class="section-label">Location</div><h3>San Francisco, CA</h3><p>Serving SaaS companies globally. Remote-first since day one.</p></div>
+<div class="info-block"><div class="section-label">Response Time</div><h3>Within 24 Hours</h3><p>Every inquiry gets a personal response from a senior team member.</p></div>
+</div>
+</div></section>
+<footer><div class="container">&copy; 2026 Ironhorse Collective, LLC. All rights reserved.</div></footer>
+</body></html>
