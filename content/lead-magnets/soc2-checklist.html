@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOC2 Readiness Checklist - Ironhorse Collective</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e17;--bg2:#111827;--text:#e2e8f0;--text2:#94a3b8;--accent:#3b82f6;--gradient:linear-gradient(135deg,#3b82f6,#8b5cf6);--border:#1e293b;--green:#10b981;--yellow:#f59e0b;--red:#ef4444}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:40px 20px}
+.container{max-width:900px;margin:0 auto}
+.header{text-align:center;margin-bottom:40px}
+.header h1{font-size:2rem;font-weight:800;margin-bottom:8px}
+.header h1 .g{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header p{color:var(--text2)}
+.progress-bar{background:var(--bg2);border-radius:12px;padding:16px 24px;margin-bottom:32px;display:flex;align-items:center;gap:16px}
+.progress-track{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;background:var(--green);border-radius:4px;transition:width .5s}
+.progress-text{font-size:.85rem;font-weight:600;color:var(--accent);white-space:nowrap}
+.section{margin-bottom:32px}
+.section h2{font-size:1.3rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section h2 .badge{font-size:.7rem;padding:3px 10px;border-radius:8px;font-weight:600}
+.badge-crit{background:rgba(239,68,68,.15);color:var(--red)}
+.badge-high{background:rgba(245,158,11,.15);color:var(--yellow)}
+.badge-med{background:rgba(59,130,246,.15);color:var(--accent)}
+.checklist{list-style:none}
+.checklist li{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:8px;display:flex;align-items:flex-start;gap:12px;transition:border-color .2s}
+.checklist li:hover{border-color:var(--accent)}
+.checklist li.done{border-color:var(--green);opacity:.7}
+.checklist li.done .check-box{background:var(--green);border-color:var(--green)}
+.checklist li.done .check-box::after{content:'\2713';color:#fff;font-size:.7rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+.checklist li.done .item-text{text-decoration:line-through}
+.check-box{width:22px;height:22px;border:2px solid var(--border);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;margin-top:2px}
+.item-content{flex:1}
+.item-text{font-size:.95rem;font-weight:500}
+.item-owner{font-size:.75rem;color:var(--text2);margin-top:2px}
+.print-btn{display:block;margin:32px auto 0;padding:14px 40px;background:var(--gradient);color:#fff;border:none;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif}
+.print-btn:hover{opacity:.9}
+.footer{text-align:center;color:var(--text2);font-size:.8rem;margin-top:24px}
+@media print{body{background:#fff;color:#000;padding:20px}.checklist li{background:#fff;border:1px solid #ddd}.check-box{border-color:#999}.section h2 .badge{border:1px solid}.print-btn{display:none!important}.progress-bar{display:none}a[href]:not([href^="#"])::after{display:none}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<h1>SOC 2 <span class="g">Readiness Checklist</span></h1>
+<p>Track your progress toward SOC 2 compliance - 20 critical requirements</p>
+</div>
+<div class="progress-bar">
+<div class="progress-track"><div class="progress-fill" id="pFill" style="width:0%"></div></div>
+<div class="progress-text" id="pText">0 / 20 complete</div>
+</div>
+<div class="section">
+<h2>Critical Requirements <span class="badge badge-crit">Must Have</span></h2>
+<ul class="checklist" id="s1">
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Asset inventory complete - all systems, tools, and data stores documented</div><div class="item-owner">Owner: Engineering</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Access control policy documented</div><div class="item-owner">Owner: Security</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">MFA enforced for all accounts</div><div class="item-owner">Owner: Engineering</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">SSO implemented across organization</div><div class="item-owner">Owner: Engineering</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Encryption at rest (AES-256)</div><div class="item-owner">Owner: Engineering</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Encryption in transit (TLS 1.2+)</div><div class="item-owner">Owner: Engineering</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Centralized logging enabled</div><div class="item-owner">Owner: Engineering</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Incident response plan documented</div><div class="item-owner">Owner: Security</div></div></li>
+</ul></div>
+<div class="section">
+<h2>High Priority <span class="badge badge-high">Should Have</span></h2>
+<ul class="checklist" id="s2">
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Change management process defined</div><div class="item-owner">Owner: Engineering</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Data classification policy</div><div class="item-owner">Owner: Security</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Vendor security assessments complete</div><div class="item-owner">Owner: Procurement</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Business continuity plan documented</div><div class="item-owner">Owner: Operations</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Employee security training program active</div><div class="item-owner">Owner: HR</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Vulnerability scanning active</div><div class="item-owner">Owner: Engineering</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Backup and recovery tested</div><div class="item-owner">Owner: Engineering</div></div></li>
+</ul></div>
+<div class="section">
+<h2>Medium Priority <span class="badge badge-med">Nice to Have</span></h2>
+<ul class="checklist" id="s3">
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Background check policy documented</div><div class="item-owner">Owner: HR</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Physical security controls in place</div><div class="item-owner">Owner: Operations</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Data retention and disposal policy</div><div class="item-owner">Owner: Legal</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">Risk assessment completed</div><div class="item-owner">Owner: Security</div></div></li>
+<li onclick="toggle(this)"><div class="check-box"></div><div class="item-content"><div class="item-text">External penetration test completed</div><div class="item-owner">Owner: Security</div></div></li>
+</ul></div>
+<button class="print-btn" onclick="window.print()">Print Checklist / Save as PDF</button>
+<div class="footer">© 2026 Ironhorse Collective, LLC | Free Download</div>
+</div>
+<script>
+function toggle(li){li.classList.toggle('done');updateProgress()}
+function updateProgress(){
+  var total=document.querySelectorAll('.checklist li').length;
+  var done=document.querySelectorAll('.checklist li.done').length;
+  var pct=Math.round(done/total*100);
+  document.getElementById('pFill').style.width=pct+'%';
+  document.getElementById('pText').textContent=done+' / '+total+' complete ('+pct+'%)';
+}
+</script>
+</body>
+</html>

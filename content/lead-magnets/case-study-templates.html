@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study Templates - Ironhorse Collective</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#fff;color:#1a1a2e;line-height:1.8;padding:40px}
+.container{max-width:800px;margin:0 auto}
+h1{font-size:2rem;font-weight:800;margin-bottom:8px;border-bottom:3px solid #3b82f6;padding-bottom:12px}
+h2{font-size:1.3rem;font-weight:700;margin-top:32px;margin-bottom:12px;color:#3b82f6}
+h3{font-size:1rem;font-weight:700;margin-top:20px;margin-bottom:8px}
+p{margin-bottom:10px;color:#333}
+.template{border:2px solid #e5e7eb;border-radius:12px;padding:24px;margin-bottom:24px;background:#f8fafc}
+.label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#3b82f6;margin-bottom:8px}
+.field{font-size:.95rem;color:#333;margin-bottom:6px}
+.field strong{color:#1a1a2e}
+.q{background:#fff;border-left:4px solid #3b82f6;padding:12px 16px;margin:12px 0;font-style:italic;color:#475569;border-radius:0 6px 6px 0}
+.section-title{font-weight:700;color:#1a1a2e;margin-top:16px;margin-bottom:4px}
+.outline{color:#555;font-size:.95rem;padding-left:20px}
+.outline li{margin-bottom:4px}
+.email{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:20px;margin-top:12px;font-size:.9rem}
+.email .subject{font-weight:700;color:#166534;margin-bottom:8px}
+.email-body{color:#333;white-space:pre-line}
+.footer{color:#999;font-size:.85rem;margin-top:32px;text-align:center}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Case Study Templates and Testimonial Request Kit</h1>
+<p>Use these templates to create compelling case studies and request testimonials from your clients.</p>
+
+<!-- Template 1 -->
+<div class="template">
+<div class="label">Template 1: SOC 2 Compliance Success Story</div>
+
+<div class="section-title">Headline Options</div>
+<ul class="outline">
+<li>"We Passed SOC 2 in 90 Days - Here is How Ironhorse Helped"</li>
+<li>"From Zero Security Program to SOC 2 Type II in 78 Days"</li>
+<li>"How a Series B Startup Closed a $400K Deal by Getting SOC 2-Ready"</li>
+</ul>
+
+<div class="section-title">Executive Summary</div>
+<div class="field"><strong>{{CLIENT_NAME}}</strong> is a {{COMPANY_DESCRIPTION}} ({{STAGE}}, {{EMPLOYEES}} employees, ${{ARR}} ARR). They came to Ironhorse Collective with {{CHALLENGE_DESCRIPTION}}. Within {{TIMELINE}}, they {{RESULT_DESCRIPTION}}.</div>
+
+<div class="section-title">The Challenge</div>
+<div class="field">{{PARAGRAPH: What was the client's security posture before working with you? What triggered the need for SOC 2? What were the business impacts of not being compliant?}}</div>
+
+<div class="section-title">The Solution</div>
+<div class="field">{{PARAGRAPH: What specific services did you provide? Gap analysis, policy development, technical controls, audit liaison? How long did each phase take? How did you embed with their team?}}</div>
+
+<div class="section-title">The Results</div>
+<div class="field">
+<strong>Key Metrics:</strong><br>
+- SOC 2 Type II audit passed on first attempt: {{DATE}}<br>
+- Timeline: {{TIMELINE}} from engagement start to audit pass<br>
+- Revenue impact: {{DEAL_SIZE}} in enterprise deals closed within 90 days post-certification<br>
+- {{ADDITIONAL_METRIC}}
+</div>
+
+<div class="section-title">Client Quote</div>
+<div class="q">"{{CLIENT_QUOTE}}"</div>
+<div class="field" style="text-align:right;color:#64748b">- {{CLIENT_NAME}}, {{CLIENT_TITLE}}, {{COMPANY}}</div>
+</div>
+
+<!-- Template 2 -->
+<div class="template">
+<div class="label">Template 2: Customer Health Score Success Story</div>
+
+<div class="section-title">Headline Options</div>
+<ul class="outline">
+<li>"{{COMPANY}} Reduced Churn by 60% With a Customer Health Score"</li>
+<li>"How We Went From 15% Annual Churn to 6% in One Quarter"</li>
+<li>"The Scoring Model That Saved {{X}} Customers Worth ${{Y}}"</li>
+</ul>
+
+<div class="section-title">Executive Summary</div>
+<div class="field"><strong>{{CLIENT_NAME}}</strong> is a {{COMPANY_DESCRIPTION}} with {{CUSTOMER_COUNT}} customers and {{CHURNRATE}} annual churn. After implementing a Customer Health Score built by Ironhorse Collective, they reduced churn to {{NEW_CHURNRATE}} and increased expansion revenue by {{EXPANSION_GROWTH}}%.</div>
+
+<div class="section-title">The Challenge</div>
+<div class="field">{{PARAGRAPH: What was the churn situation? What was the CS team's capacity? Were they reactive or proactive? What was the business impact?}}</div>
+
+<div class="section-title">The Solution</div>
+<div class="field">{{PARAGRAPH: What dimensions were scored? What data sources were used? How was the model built? What playbooks were created for each tier? How was the CS team trained?}}</div>
+
+<div class="section-title">The Results</div>
+<div class="field">
+<strong>Key Metrics:</strong><br>
+- Annual churn reduced: {{OLD_CHURN}}% → {{NEW_CHURN}}%<br>
+- CS team productivity increase: {{PRODUCTIVITY_GAIN}}%<br>
+- Expansion revenue growth: {{EXPANSION_GROWTH}}%<br>
+- Net revenue retention improved from {{OLD_NRR}}% to {{NEW_NRR}}%<br>
+- {{ADDITIONAL_METRIC}}
+</div>
+
+<div class="section-title">Client Quote</div>
+<div class="q">"{{CLIENT_QUOTE}}"</div>
+<div class="field" style="text-align:right;color:#64748b">- {{CLIENT_NAME}}, {{CLIENT_TITLE}}, {{COMPANY}}</div>
+</div>
+
+<!-- Template 3 -->
+<div class="template">
+<div class="label">Template 3: Fractional CISO Success Story</div>
+
+<div class="section-title">Headline Options</div>
+<ul class="outline">
+<li>"A Fractional CISO Saved Our Startup From a Security Nightmare"</li>
+<li>"How We Got $400K/year Expertise for $5K/month With a Fractional CISO"</li>
+<li>"Security as a Growth Enabler: How Ironhorse Built Our Entire Program"</li>
+</ul>
+
+<div class="section-title">Executive Summary</div>
+<div class="field"><strong>{{CLIENT_NAME}}</strong> is a {{COMPANY_DESCRIPTION}} ({{STAGE}}, {{EMPLOYEES}} employees). Their CTO was spending 60% of their time on security instead of product. Ironhorse placed a Fractional CISO who within 90 days built a complete security program, initiated SOC 2 readiness, and freed the CTO to focus on product.</div>
+
+<div class="section-title">The Challenge</div>
+<div class="field">{{PARAGRAPH: What was the security situation? Any incidents? What was the impact on the CTO and engineering team? What were the business risks?}}</div>
+
+<div class="section-title">The Solution</div>
+<div class="field">{{PARAGRAPH: What did the Fractional CISO do in the first 30 days? 60 days? 90 days? What policies, programs, and processes were built? How did they interact with the board and investors?}}</div>
+
+<div class="section-title">The Results</div>
+<div class="field">
+<strong>Key Metrics:</strong><br>
+- Cost savings vs full-time CISO: {{COST_SAVINGS}}%<br>
+- CTO freed up: {{CTO_TIME_FREED}} hours/week<br>
+- Security program maturity: {{BEFORE_MATURITY}} → {{AFTER_MATURITY}}<br>
+- {{SECURITY_PROGRAM_ASSESSMENT_SCALE}}<br>
+- Board/stakeholder satisfaction rating: {{SATISFACTION}}/10<br>
+- {{ADDITIONAL_METRIC}}
+</div>
+
+<div class="section-title">Client Quote</div>
+<div class="q">"{{CLIENT_QUOTE}}"</div>
+<div class="field" style="text-align:right;color:#64748b">- {{CLIENT_NAME}}, {{CLIENT_TITLE}}, {{COMPANY}}</div>
+</div>
+
+<!-- Testimonial Request Email -->
+<div class="template">
+<div class="label">Testimonial Request - Email Template</div>
+
+<div class="email">
+<div class="subject">Subject: Quick favor - would you share your experience with Ironhorse?</div>
+<div class="email-body">Hi {{CLIENT_FIRST_NAME}},
+
+I hope things are going well at {{COMPANY_NAME}}! {{PERSONAL_REFERENCE}}.
+
+I wanted to reach out because we are building out our case study library, and your experience working with us really stands out. Your {{SPECIFIC_RESULT}} is exactly the kind of outcome we love to showcase.
+
+Would you be open to a brief 10-minute call where I ask a few questions about your experience? I will draft up a quote and share it with you for approval before anything goes public. No heavy lifting on your end - just a quick conversation.
+
+Also, if you are comfortable with a short written testimonial instead, I can send over a few questions over email.
+
+Either way means a lot to us, and I appreciate you considering it.
+
+Best,
+{{SENDER_NAME}}
+{{SENDER_TITLE}}, Ironhorse Collective, LLC
+hello@ironhorsecollective.com</div>
+</div>
+</div>
+
+<!-- Quick Testimonial Form -->
+<div class="template">
+<div class="label">Quick Testimonial - Google Form / Typeform Template</div>
+<div class="field">
+<strong>Question 1:</strong> What was your biggest security/customer success challenge before working with Ironhorse?<br><br>
+<strong>Question 2:</strong> What specific solution did Ironhorse provide, and what was the impact?<br><br>
+<strong>Question 3:</strong> What results have you seen? (Please include specific metrics if possible)<br><br>
+<strong>Question 4:</strong> What would you say to another founder considering Ironhorse's services?<br><br>
+<strong>Question 5:</strong> Can we use your name, title, and company name publicly?<br>
+○ Yes, full attribution  ○ Yes, but anonymize company  ○ Quote only, anonymized
+</div>
+</div>
+
+<div class="footer">© 2026 Ironhorse Collective, LLC | Internal case study kit</div>
+</div>
+</body>
+</html>
