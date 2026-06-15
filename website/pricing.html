@@ -17,7 +17,7 @@ section{padding:100px 0}.hero{padding:160px 0 80px;text-align:center}
 .hero h1{font-size:3rem;font-weight:900;line-height:1.1;margin-bottom:20px}
 .hero h1 .gradient{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .hero p{color:var(--text2);font-size:1.2rem;max-width:600px;margin:0 auto}
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:60px}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:60px}
 .pricing-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:40px;text-align:center;transition:transform .3s,border-color .3s}
 .pricing-card:hover{transform:translateY(-4px);border-color:var(--accent)}
 .pricing-card.featured{border-color:var(--accent);position:relative}
@@ -37,6 +37,12 @@ section{padding:100px 0}.hero{padding:160px 0 80px;text-align:center}
 .section-title{font-size:2.5rem;font-weight:800;margin-bottom:16px}
 .section-desc{color:var(--text2);max-width:600px;margin:0 auto 60px;font-size:1.1rem}
 .secure-note{text-align:center;color:var(--text2);font-size:.85rem;margin-top:40px;opacity:.7}
+.infra-section{margin-top:80px}
+.infra-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:40px}
+.infra-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:28px;text-align:left}
+.infra-card h4{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.infra-card .price{font-size:1.4rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.infra-card p{color:var(--text2);font-size:.85rem;line-height:1.6}
 footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 0 24px;text-align:center;color:var(--text2);font-size:.85rem}
 @media(max-width:768px){.nav-links{display:none}.hero h1{font-size:2rem}}
 </style></head><body>
@@ -47,10 +53,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 0 2
 </div></nav>
 <section class="hero"><div class="container">
 <h1>Simple, Transparent <span class="gradient">Pricing</span></h1>
-p>Every engagement starts with a free strategy call. No hidden fees, no long-term contracts.</p>
+<p>Every engagement starts with a free strategy call. No hidden fees, no long-term contracts.</p>
 </div></section>
 <section><div class="container" style="text-align:center">
-<div class="section-label">Pricing</div>
+<div class="section-label">Core Services</div>
 <h2 class="section-title">Choose Your Engagement</h2>
 <p class="section-desc">From one-time assessments to ongoing advisory, we have a model that fits your stage and budget.</p>
 <div class="pricing-grid">
@@ -58,17 +64,17 @@ p>Every engagement starts with a free strategy call. No hidden fees, no long-ter
 <div class="pricing-icon">&#128737;&#65039;</div>
 <h3>SOC2 Readiness Assessment</h3>
 <p class="pricing-desc">Complete gap analysis, policy library, and audit preparation roadmap.</p>
-<div class="pricing-amount">$8,000</div>
+<div class="pricing-amount">$12,000 - $15,000</div>
 <div class="pricing-period">One-time engagement (3 months)</div>
 <ul class="pricing-features"><li>Gap analysis against all 5 TSC</li><li>40+ policy templates</li><li>Technical controls roadmap</li><li>Audit liaison included</li></ul>
-<a href="https://buy.stripe.com/test_aFa5kFd9Te1obb0dhK2kw00" class="btn-primary" style="margin-right:16px">Book Now</a><a href="contact.html" class="btn-secondary">Free Consultation</a>
+<a href="https://buy.stripe.com/test_aFa5kFd9Te1obb0dhK2kw00" class="btn-primary">Book Now</a>
 </div>
 <div class="pricing-card featured">
 <div class="pricing-icon">&#128100;</div>
 <h3>Fractional CISO</h3>
 <p class="pricing-desc">Executive-level security leadership on a flexible, part-time basis.</p>
 <div class="pricing-amount">$250/hr</div>
-<div class="pricing-period">Or $4,000/month retainer</div>
+<div class="pricing-period">Or retainer from $2,250/month</div>
 <ul class="pricing-features"><li>Security strategy and roadmap</li><li>Board and investor reporting</li><li>Incident response planning</li><li>Vendor security reviews</li></ul>
 <a href="https://buy.stripe.com/test_aFa5kFd9Te1obb0dhK2kw00" class="btn-primary">Hire CISO</a>
 </div>
@@ -76,8 +82,8 @@ p>Every engagement starts with a free strategy call. No hidden fees, no long-ter
 <div class="pricing-icon">&#128202;</div>
 <h3>Customer Health Scoring</h3>
 <p class="pricing-desc">Predictive churn model that identifies at-risk accounts 90 days early.</p>
-<div class="pricing-amount">$4,500</div>
-<div class="pricing-period">Setup + first month</div>
+<div class="pricing-amount">$4,500 - $12,000</div>
+<div class="pricing-period">Tiered: Basic / Pro / Enterprise</div>
 <ul class="pricing-features"><li>Custom scoring model</li><li>Data pipeline integration</li><li>Automated alerts and playbooks</li><li>Team training included</li></ul>
 <a href="https://buy.stripe.com/test_aFa5kFd9Te1obb0dhK2kw00" class="btn-primary">Get Started</a>
 </div>
@@ -85,7 +91,7 @@ p>Every engagement starts with a free strategy call. No hidden fees, no long-ter
 <div class="pricing-icon">&#128176;</div>
 <h3>Financing Advisory</h3>
 <p class="pricing-desc">Strategic capital access guidance and provider introductions.</p>
-<div class="pricing-amount">$2,500</div>
+<div class="pricing-amount">$4,000 - $5,000</div>
 <div class="pricing-period">Strategy engagement</div>
 <ul class="pricing-features"><li>Financing landscape analysis</li><li>Financial model optimization</li><li>Provider introductions</li><li>Term sheet negotiation</li></ul>
 <a href="https://buy.stripe.com/test_aFa5kFd9Te1obb0dhK2kw00" class="btn-primary">Explore Options</a>
@@ -93,5 +99,38 @@ p>Every engagement starts with a free strategy call. No hidden fees, no long-ter
 </div>
 <p class="secure-note">&#128274; All payments processed securely through Stripe. SOC2-compliant payment infrastructure.</p>
 </div></section>
+
+<!-- New Infrastructure Security Section -->
+<section class="infra-section"><div class="container" style="text-align:center">
+<div class="section-label">New: Infrastructure Security</div>
+<h2 class="section-title">Legacy Infrastructure <span class="gradient">Security Assessments</span></h2>
+<p class="section-desc">Specialized security and compliance assessments for the infrastructure that runs your business — and that most firms ignore.</p>
+<div class="infra-grid">
+<div class="infra-card">
+<h4>Mainframe Security</h4>
+<div class="price">$8K - $25K</div>
+<p>RACF/ACF2/Top Secret audit, compliance mapping, modernization security review, z/OS hardening.</p>
+</div>
+<div class="infra-card">
+<h4>Telephony Security</h4>
+<div class="price">$5K - $20K</div>
+<p>VoIP assessment, UC compliance audit, telephony pen testing, phone system hardening.</p>
+</div>
+<div class="infra-card">
+<h4>Contact Center Compliance</h4>
+<div class="price">$8K - $30K</div>
+<p>PCI-DSS compliance, security assessment, architecture review, agent behavior analytics.</p>
+</div>
+<div class="infra-card">
+<h4>Storage &amp; Data Governance</h4>
+<div class="price">$6K - $25K</div>
+<p>SAN/NAS security, data classification, cloud storage audit, ransomware resilience.</p>
+</div>
+</div>
+<div style="margin-top:32px">
+<a href="contact.html" class="btn-primary" style="width:auto;display:inline-block;padding:16px 40px">Book a Free Consultation</a>
+</div>
+</div></section>
+
 <footer><div class="container">&copy; 2026 Ironhorse Collective, LLC. All rights reserved.</div></footer>
 </body></html>

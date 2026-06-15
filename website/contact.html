@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact - Ironhorse Collective, LLC</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,9 +28,19 @@ section{padding:100px 0}.hero{padding:160px 0 80px;text-align:center}
 .info-block h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
 .info-block p{color:var(--text2);font-size:.95rem;line-height:1.7}
 .section-label{display:inline-block;padding:6px 16px;background:rgba(59,130,246,.1);color:var(--accent);border-radius:20px;font-size:.8rem;font-weight:600;margin-bottom:16px;border:1px solid rgba(59,130,246,.2)}
+.calendly-section{margin-top:60px;text-align:center}
+.calendly-section h2{font-size:2rem;font-weight:800;margin-bottom:16px}
+.calendly-section h2 .gradient{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.calendly-section p{color:var(--text2);font-size:1.1rem;margin-bottom:32px}
+.calendly-inline-widget{min-height:700px}
+.divider{display:flex;align-items:center;gap:16px;margin:40px 0;color:var(--text2);font-size:.9rem}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
 footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 0 24px;text-align:center;color:var(--text2);font-size:.85rem}
 @media(max-width:768px){.nav-links{display:none}.hero h1{font-size:2rem}.contact-grid{grid-template-columns:1fr}}
-</style></head><body>
+</style>
+<!-- Calendly widget CSS -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+</head><body>
 <nav><div class="container">
 <div class="logo">Ironhorse Collective<span>consulting</span></div>
 <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul>
@@ -47,16 +57,30 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 0 2
 <div class="form-group"><label>Work Email</label><input type="email" placeholder="jane@company.com" required></div>
 <div class="form-group"><label>Company</label><input type="text" placeholder="Company name"></div>
 <div class="form-group"><label>What do you need help with?</label>
-<select><option>SOC2 Readiness</option><option>Fractional CISO</option><option>Customer Health Scoring</option><option>Revenue-Based Financing</option><option>Multiple Services</option><option>Something Else</option></select></div>
+<select><option>SOC2 Readiness</option><option>Fractional CISO</option><option>Customer Health Scoring</option><option>Revenue-Based Financing</option><option>Mainframe Security</option><option>Telephony Security</option><option>Contact Center Compliance</option><option>Storage &amp; Data Governance</option><option>Multiple Services</option><option>Something Else</option></select></div>
 <div class="form-group"><label>Tell us about your situation</label><textarea placeholder="Brief description of your company and what you are looking for..."></textarea></div>
 <button type="submit" class="btn-primary">Request Strategy Call</button>
 </form>
 <div class="contact-info">
 <div class="info-block"><div class="section-label">Email</div><h3>hello@ironhorsecollective.com</h3><p>We respond within 4 business hours.</p></div>
-<div class="info-block"><div class="section-label">Phone</div><h3>+1 (415) 555-0192</h3><p>Mon-Fri, 9am-6pm PT</p></div>
-<div class="info-block"><div class="section-label">Location</div><h3>San Francisco, CA</h3><p>Serving SaaS companies globally. Remote-first since day one.</p></div>
+<div class="info-block"><div class="section-label">Location</div><h3>San Francisco, CA</h3><p>Serving companies globally. Remote-first since day one.</p></div>
 <div class="info-block"><div class="section-label">Response Time</div><h3>Within 24 Hours</h3><p>Every inquiry gets a personal response from a senior team member.</p></div>
+<div class="info-block"><div class="section-label">New Services</div><h3>Expanded Infrastructure Security</h3><p>Mainframe, Telephony, Contact Center, and Storage security assessments now available.</p></div>
+</div>
 </div>
 </div></section>
+
+<!-- Calendly Booking Section -->
+<section class="calendly-section"><div class="container">
+<div class="divider">Or book directly — no back and forth</div>
+<h2>Schedule Your <span class="gradient">Free Strategy Call</span></h2>
+<p>Pick a time that works for you. Instant confirmation.</p>
+<!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/christopherajordan/30min" style="min-width:320px;height:700px;"></div>
+<!-- Calendly inline widget end -->
+</div></section>
+
+<!-- Calendly widget JS -->
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <footer><div class="container">&copy; 2026 Ironhorse Collective, LLC. All rights reserved.</div></footer>
 </body></html>
