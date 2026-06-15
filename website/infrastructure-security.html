@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infrastructure Security Review - Ironhorse Collective, LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e17;--bg2:#111827;--text:#e2e8f0;--text2:#94a3b8;--accent:#3b82f6;--accent2:#8b5cf6;--gradient:linear-gradient(135deg,#3b82f6,#8b5cf6);--border:#1e293b}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--accent);text-decoration:none}.container{max-width:1200px;margin:0 auto;padding:0 24px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,23,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+nav .container{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-size:1.5rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo span{color:var(--text);font-weight:400;font-size:.85rem;margin-left:4px}
+.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{color:var(--text2);font-size:.9rem;font-weight:500}
+.nav-cta{padding:10px 20px;background:var(--gradient);color:#fff;border-radius:8px;font-size:.85rem;font-weight:600}
+.hero{padding:160px 0 80px;text-align:center;position:relative}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(59,130,246,.12),transparent 70%);pointer-events:none}
+.hero h1{font-size:3rem;font-weight:900;line-height:1.1;margin-bottom:20px;letter-spacing:-.02em}
+.hero h1 .gradient{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--text2);font-size:1.2rem;max-width:640px;margin:0 auto 40px;line-height:1.7}
+.btn-primary{display:inline-block;padding:16px 36px;background:var(--gradient);color:#fff;border-radius:12px;font-size:1rem;font-weight:700}
+.btn-secondary{display:inline-block;padding:16px 36px;background:transparent;color:#fff;border:2px solid var(--border);border-radius:12px;font-size:1rem;font-weight:600}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.section-label{display:inline-block;padding:6px 16px;background:rgba(59,130,246,.1);color:var(--accent);border-radius:20px;font-size:.8rem;font-weight:600;margin-bottom:16px;border:1px solid rgba(59,130,246,.2)}
+.section-title{font-size:2.5rem;font-weight:800;margin-bottom:16px;letter-spacing:-.01em}
+.section-desc{color:var(--text2);max-width:600px;margin:0 auto 60px;font-size:1.1rem}
+section{padding:100px 0}
+.domains-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:40px}
+.domain-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:36px;transition:transform .3s,border-color .3s}
+.domain-card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.domain-icon{font-size:2.5rem;margin-bottom:16px}
+.domain-card h3{font-size:1.2rem;font-weight:700;margin-bottom:8px}
+.domain-card .price{font-size:1.5rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.domain-card p{color:var(--text2);font-size:.9rem;line-height:1.7;margin-bottom:16px}
+.domain-card ul{list-style:none;padding:0}
+.domain-card ul li{padding:4px 0;color:var(--text2);font-size:.85rem;border-bottom:1px solid var(--border)}
+.domain-card ul li:last-child{border-bottom:none}
+.bundle-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.bundle-card{background:var(--bg);border:2px solid var(--accent);border-radius:20px;padding:48px;text-align:center;max-width:600px;margin:0 auto;position:relative}
+.bundle-card::before{content:'Best Value';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gradient);color:#fff;padding:6px 20px;border-radius:12px;font-size:.8rem;font-weight:700}
+.bundle-card .bundle-price{font-size:3.5rem;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:16px 0}
+.bundle-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;margin:24px 0}
+.bundle-features div{padding:8px 0;color:var(--text2);font-size:.9rem}
+.cta-section{text-align:center;padding:120px 0}
+.cta-section h2{font-size:2.5rem;font-weight:800;margin-bottom:16px}
+.cta-section h2 .gradient{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cta-section p{color:var(--text2);margin-bottom:40px;font-size:1.1rem;max-width:500px;margin-left:auto;margin-right:auto}
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 0 24px;text-align:center;color:var(--text2);font-size:.85rem}
+@media(max-width:768px){.nav-links{display:none}.hero h1{font-size:2.2rem}.bundle-features{grid-template-columns:1fr}}
+</style>
+<!-- Calendly widget CSS -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+</head><body>
+<nav><div class="container">
+<div class="logo">Ironhorse Collective<span>consulting</span></div>
+<ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul>
+<a href="contact.html" class="nav-cta">Get Started</a>
+</div></nav>
+
+<section class="hero"><div class="container">
+<h1>Your Legacy Infrastructure Is Your <span classspan class="gradient">Biggest Security Risk</span></h1>
+<p>Mainframe. Telephony. Contact Center. Storage. The systems that run your business — and that almost nobody is securing. Our Infrastructure Security Review covers all four.</p>
+<div class="hero-btns">
+<a href="https://calendly.com/christopherajordan/30min" class="btn-primary">Book Free Assessment</a>
+<a href="#domains" class="btn-secondary">Learn More</a>
+</div>
+</div></section>
+
+<section id="domains"><div class="container" style="text-align:center">
+<div class="section-label">Infrastructure Security</div>
+<h2 class="section-title">Four Domains. One Comprehensive Review.</h2>
+<p class="section-desc">Most cybersecurity firms only assess cloud and endpoints. We go deeper — into the legacy infrastructure that runs your core business operations.</p>
+<div class="domains-grid">
+<div class="domain-card">
+<div class="domain-icon">&#128187;</div>
+<h3>Mainframe Security</h3>
+<div class="price">$8K - $25K</div>
+<p>RACF/ACF2/Top Secret audit, compliance mapping, modernization security, z/OS hardening.</p>
+<ul>
+<li>Access control review</li>
+<li>SOC2/HIPAA/PCI mapping</li>
+<li>Configuration audit</li>
+<li>Data protection assessment</li>
+</ul>
+</div>
+<div class="domain-card">
+<div class="domain-icon">&#128222;</div>
+<h3>Telephony Security</h3>
+<div class="price">$5K - $20K</div>
+<p>VoIP assessment, UC compliance, telephony pen testing, phone system hardening.</p>
+<ul>
+<li>SIP vulnerability analysis</li>
+<li>Toll fraud prevention</li>
+<li>Teams/Zoom compliance</li>
+<li>PBX hardening</li>
+</ul>
+</div>
+<div class="domain-card">
+<div class="domain-icon">&#128223;</div>
+<h3>Contact Center Compliance</h3>
+<div class="price">$8K - $30K</div>
+<p>PCI-DSS compliance, security assessment, architecture review, agent analytics.</p>
+<ul>
+<li>PCI-DSS audit readiness</li>
+<li>Agent desktop security</li>
+<li>WFH agent policies</li>
+<li>Vendor security review</li>
+</ul>
+</div>
+<div class="domain-card">
+<div class="domain-icon">&#128190;</div>
+<h3>Storage &amp; Data Governance</h3>
+<div class="price">$6K - $25K</div>
+<p>SAN/NAS security, data classification, cloud storage audit, ransomware resilience.</p>
+<ul>
+<li>Encryption audit</li>
+<li>Data classification</li>
+<li>Cloud storage security</li>
+<li>Backup resilience testing</li>
+</ul>
+</div>
+</div>
+</div></section>
+
+<section class="bundle-section"><div class="container" style="text-align:center">
+<div class="section-label">Premium Bundle</div>
+<h2 class="section-title">Full Infrastructure <span class="gradient">Security Review</span></h2>
+<p class="section-desc">A comprehensive assessment across all four domains. The most thorough infrastructure security evaluation available from any firm our size.</p>
+<div class="bundle-card">
+<h3 style="font-size:1.5rem;font-weight:700;margin-bottom:8px">Complete Infrastructure Security Review</h3>
+<p style="color:var(--text2);font-size:.95rem;margin-bottom:8px">All four domains. One integrated report. Actionable remediation roadmap.</p>
+<div class="bundle-price">$30,000 - $60,000</div>
+<p style="color:var(--text2);font-size:.85rem;margin-bottom:24px">Or $80,000 - $150,000/year for quarterly assessments</p>
+<div class="bundle-features">
+<div>&#10003; Mainframe security assessment</div>
+<div>&#10003; Telephony security review</div>
+<div>&#10003; Contact center compliance audit</div>
+<div>&#10003; Storage &amp; data governance review</div>
+<div>&#10003; Cross-domain risk analysis</div>
+<div>&#10003; Executive summary report</div>
+<div>&#10003; Remediation roadmap</div>
+<div>&#10003; Audit liaison support</div>
+</div>
+<a href="https://calendly.com/christopherajordan/30min" class="btn-primary" style="width:auto;display:inline-block;padding:16px 48px">Book Free Consultation</a>
+</div>
+</div></section>
+
+<section class="cta-section"><div class="container">
+<h2>Ready to Secure Your <span class="gradient">Entire Infrastructure?</span></h2>
+<p>Book a free 30-minute strategy call. We'll assess your current posture and recommend the right engagement for your needs.</p>
+<a href="https://calendly.com/christopherajordan/30min" class="btn-primary">Book Your Free Strategy Call</a>
+</div></section>
+
+<footer><div class="container">&copy; 2026 Ironhorse Collective, LLC. All rights reserved.</div></footer>
+<!-- Calendly widget JS -->
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body></html>
