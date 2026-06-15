@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fractional CISO Hiring Decision Framework - Ironhorse Collective</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e17;--bg2:#111827;--text:#e2e8f0;--text2:#94a3b8;--accent:#3b82f6;--gradient:linear-gradient(135deg,#3b82f6,#8b5cf6);--border:#1e293b;--green:#10b981;--yellow:#f59e0b;--red:#ef4444}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:40px 20px}
+.container{max-width:900px;margin:0 auto}
+h1{font-size:2rem;font-weight:800;text-align:center;margin-bottom:8px}
+h1 .g{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{text-align:center;color:var(--text2);margin-bottom:40px;font-size:1rem}
+.step{margin-bottom:32px}
+.step-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.step-num{width:36px;height:36px;background:var(--gradient);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;flex-shrink:0}
+.step-title{font-size:1.2rem;font-weight:700}
+.inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-bottom:20px}
+.input-group{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px}
+.input-group label{display:block;font-size:.85rem;font-weight:600;margin-bottom:8px;color:var(--text2)}
+.input-group select,.input-group input{width:100%;padding:10px 14px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:#fff;font-size:.9rem;font-family:'Inter',sans-serif;outline:none}
+.input-group select:focus{border-color:var(--accent)}
+.result{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:32px;margin-top:24px;text-align:center}
+.result-label{font-size:.85rem;color:var(--text2);margin-bottom:8px}
+.result-text{font-size:1.8rem;font-weight:800;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.result-detail{color:var(--text2);margin-top:8px;font-size:.95rem}
+.result-rec{margin-top:20px;padding:16px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.2);border-radius:10px;text-align:left}
+.result-rec h4{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--accent)}
+.result-rec p{color:var(--text2);font-size:.9rem;line-height:1.6}
+.cost-comparison{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.cost-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.cost-card h4{font-size:.8rem;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.cost-card .amount{font-size:1.4rem;font-weight:800}
+.cost-card .period{font-size:.75rem;color:var(--text2)}
+.cost-card.highlight{border-color:var(--accent);background:rgba(59,130,246,.05)}
+.cost-card.highlight .amount{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+table{width:100%;border-collapse:collapse;margin-top:24px;font-size:.9rem}
+th,td{padding:12px;text-align:left;border-bottom:1px solid var(--border)}
+th{color:var(--text2);font-weight:600;font-size:.75rem;text-transform:uppercase}
+.recommend{color:var(--green);font-weight:700}
+.footer{text-align:center;color:var(--text2);font-size:.8rem;margin-top:32px}
+@media(max-width:600px){.cost-comparison{grid-template-columns:1fr}.inputs{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Find Your <span class="g">Security Leader</span></h1>
+<p class="subtitle">An interactive tool to determine the right security leadership for your stage</p>
+
+<div class="step">
+<div class="step-header"><div class="step-num">1</div><div class="step-title">Company Profile</div></div>
+<div class="inputs">
+<div class="input-group"><label>Company Stage</label><select id="stage" onchange="calc()"><option value="pre-seed">Pre-Seed</option><option value="seed">Seed</option><option value="series-a" selected>Series A</option><option value="series-b">Series B</option><option value="series-c">Series C+</option></select></div>
+<div class="input-group"><label>Employee Count</label><select id="employees" onchange="calc()"><option value="1-10">1-10</option><option value="11-50" selected>11-50</option><option value="51-150">51-150</option><option value="151-500">151-500</option><option value="500+">500+</option></select></div>
+<div class="input-group"><label>Annual Revenue</label><select id="revenue" onchange="calc()"><option value="<1M">Under $1M</option><option value="1-5M" selected>$1M - $5M</option><option value="5-15M">$5M - $15M</option><option value="15M+">$15M+</option></select></div>
+<div class="input-group"><label>Security Team Size</label><select id="team" onchange="calc()"><option value="0" selected>None</option><option value="1">1 person</option><option value="2">2 people</option><option value="3+">3+ people</option></select></div>
+</div>
+</div>
+
+<div class="step">
+<div class="step-header"><div class="step-num">2</div><div class="step-title">Security Needs</div></div>
+<div class="inputs">
+<div class="input-group"><label>Compliance Requirements</label><select id="compliance" onchange="calc()"><option value="none">None yet</option><option value="soc2" selected>SOC 2</option><option value="multiple">Multiple (SOC2 + ISO/HIPAA)</option></select></div>
+<div class="input-group"><label>Recent Security Incidents</label><select id="incidents" onchange="calc()"><option value="0" selected>None</option><option value="1">1 minor</option><option value="2+">2 or more</option></select></div>
+<div class="input-group"><label>Board Reporting Required</label><select id="board" onchange="calc()"><option value="no" selected>No</option><option value="quarterly">Quarterly</option><option value="monthly">Monthly</option></select></div>
+<div class="input-group"><label>Monthly Security Budget</label><select id="budget" onchange="calc()"><option value="<5K">Under $5K</option><option value="5-20K" selected>$5K - $20K</option><option value="20-50K">$20K - $50K</option><option value="50K+">$50K+</option></select></div>
+</div>
+</div>
+
+<div class="result" id="result">
+<div class="result-label">Recommended Approach</div>
+<div class="result-text" id="recText">Fractional CISO</div>
+<div class="result-detail" id="recDetail">$5,000/month retainer | 20 hours/month</div>
+<div class="result-rec" id="recReason">
+<h4>Why this recommendation?</h4>
+<p id="recReasonText">Based on your company profile, a Fractional CISO gives you executive-level security leadership at a price point that makes sense for your stage.</p>
+</div>
+</div>
+
+<div class="cost-comparison">
+<div class="cost-card"><h4>Fractional CISO</h4><div class="amount">$5K-$20K/mo</div><div class="period">Flexible hours</div></div>
+<div class="cost-card"><h4>Full-Time CISO</h4><div class="amount">$250K-$400K/yr</div><div class="period">+ equity + benefits</div></div>
+</div>
+
+<table>
+<thead><tr><th>Factor</th><th>Fractional CISO</th><th>Full-Time CISO</th></tr></thead>
+<tbody>
+<tr><td>Time to Start</td><td class="recommend">1-2 weeks</td><td>3-6 months</td></tr>
+<tr><td>Cost (Year 1)</td><td class="recommend">$60K-$240K</td><td>$320K-$740K</td></tr>
+<tr><td>Cross-Industry Experience</td><td class="recommend">Multiple companies</td><td>Single company</td></tr>
+<tr><td>Board Reporting</td><td class="recommend">Available</td><td>Always available</td></tr>
+<tr><td>Incident Response (24/7)</td><td>On-call (add-on)</td><td class="recommend">Always available</td></tr>
+<tr><td>Team Building</td><td>Advisory</td><td class="recommend">Hires and manages</td></tr>
+</tbody>
+</table>
+
+<div class="cta" style="text-align:center;margin-top:32px">
+<a href="mailto:aisha@ironhorsecollective.com" style="display:inline-block;padding:14px 36px;background:var(--gradient);color:#fff;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none">Book a Free Security Leadership Consultation</a>
+</div>
+
+<div class="footer">© 2026 Ironhorse Collective, LLC | Interactive Decision Tool</div>
+</div>
+<script>
+function calc(){
+  var s=document.getElementById('stage').value;
+  var e=document.getElementById('employees').value;
+  var r=document.getElementById('revenue').value;
+  var t=document.getElementById('team').value;
+  var c=document.getElementById('compliance').value;
+  var score=0;
+  if(s==='pre-seed'||s==='seed')score+=3;else if(s==='series-a')score+=2;else if(s==='series-b')score+=1;
+  if(e==='1-10'||e==='11-50')score+=3;else if(e==='51-150')score+=2;else if(e==='151-500')score+=1;
+  if(r==='<1M'||r==='1-5M')score+=3;else if(r==='5-15M')score+=2;else if(r==='15M+')score+=1;
+  if(t==='0')score+=3;else if(t==='1')score+=2;else if(t==='2')score+=1;
+  if(c==='multiple')score-=1;
+  var resultText,resultDetail,reasonText;
+  if(score>=8){resultText='Fractional CISO';resultDetail='$5,000 - $10,000/month retainer | 10-20 hours/month';reasonText='You are at the perfect stage for a Fractional CISO. You get executive security leadership, compliance guidance, and board-ready reporting without the $300K+ full-time cost. Most companies at your stage start here.'}
+  else if(score>=5){resultText='Fractional CISO (Senior) or Part-Time Full-Time CISO';resultDetail='$10,000 - $20,000/month | Consider hybrid as you scale';reasonText='Your security needs are growing. A senior Fractional CISO can build your program and help you hire a full-time CISO when the time is right. Consider a 6-month Fractional engagement with a transition plan.'}
+  else{resultText='Full-Time CISO';resultDetail='$250,000 - $350,000/year + equity';reasonText='At your stage with your team size and compliance requirements, you need a dedicated full-time CISO. A Fractional CISO can help you define the role and recruit the right candidate during a 2-3 month transition.'}
+  document.getElementById('recText').textContent=resultText;
+  document.getElementById('recDetail').textContent=resultDetail;
+  document.getElementById('recReasonText').textContent=reasonText;
+}
+calc();
+</script>
+</body>
+</html>

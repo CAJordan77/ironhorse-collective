@@ -3,6 +3,11 @@
   publish = "website"
 
 [[redirects]]
+  from = "/lead-magnets/*"
+  to = "/lead-magnets/:splat"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

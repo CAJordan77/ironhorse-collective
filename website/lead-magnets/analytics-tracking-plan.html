@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics Tracking Plan - Ironhorse Collective</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#fff;color:#1a1a2e;line-height:1.8;padding:40px}
+.container{max-width:900px;margin:0 auto}
+h1{font-size:2rem;font-weight:800;margin-bottom:8px;border-bottom:3px solid #3b82f6;padding-bottom:12px}
+h2{font-size:1.3rem;font-weight:700;margin-top:32px;margin-bottom:12px;color:#3b82f6}
+h3{font-size:1rem;font-weight:700;margin-top:20px;margin-bottom:8px}
+p{margin-bottom:10px;color:#333}
+table{width:100%;border-collapse:collapse;margin-bottom:24px;font-size:.9rem}
+th,td{padding:12px;text-align:left;border:1px solid #e5e7eb}
+th{background:#f8fafc;font-weight:700;font-size:.8rem;text-transform:uppercase}
+tr:nth-child(even) td{background:#f8fafc}
+.tag{display:inline-block;padding:3px 10px;border-radius:6px;font-size:.7rem;font-weight:700}
+.tag-crit{background:#fef2f2;color:#dc2626}
+.tag-high{background:#fffbeb;color:#d97706}
+.tag-med{background:#eff6ff;color:#2563eb}
+.phase{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:20px;margin-bottom:20px}
+.phase h3{margin-top:0;color:#166534}
+.footer{color:#999;font-size:.85rem;margin-top:32px;text-align:center}
+@media print{body{padding:20px}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>Google Analytics 4 - Tracking Plan</h1>
+<p>Event tracking specification for the Ironhorse Collective website</p>
+
+<h2>Setup Checklist</h2>
+<table>
+<thead><tr><th>#</th><th>Task</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Create GA4 property for ironhorsecollective.com</td><td>☐</td></tr>
+<tr><td>2</td><td>Install GA4 tag via Google Tag Manager</td><td>☐</td></tr>
+<tr><td>3</td><td>Enable enhanced measurement (page views, scrolls, outbound clicks)</td><td>☐</td></tr>
+<tr><td>4</td><td>Configure custom events (see below)</td><td>☐</td></tr>
+<tr><td>5</td><td>Set up conversion goals</td><td>☐</td></tr>
+<tr><td>6</td><td>Configure Google Search Console integration</td><td>☐</td></tr>
+<tr><td>7</td><td>Set up Google Ads conversion tracking</td><td>☐</td></tr>
+<tr><td>8</td><td>Test all events in GA4 DebugView</td><td>☐</td></tr>
+</tbody>
+</table>
+
+<h2>Custom Events Specification</h2>
+
+<div class="phase">
+<h3>Phase 1: Core Events</h3>
+<table>
+<thead><tr><th>Event Name</th><th>Trigger</th><th>Parameters</th><th>Priority</th></tr></thead>
+<tbody>
+<tr><td>generate_lead</td><td>Email form submission on any page</td><td>page_location, content_name</td><td><span class="tag tag-crit">Critical</span></td></tr>
+<tr><td>form_submit</td><td>Contact form submission</td><td>form_name: "contact", inquiry_type</td><td><span class="tag tag-crit">Critical</span></td></tr>
+<tr><td>click</td><td>Stripe Payment Link click</td><td>link_text, link_url, page_location</td><td><span class="tag tag-crit">Critical</span></td></tr>
+<tr><td>file_download</td><td>Lead magnet download (checklist, calculator)</td><td>file_name, file_extension, page_location</td><td><span class="tag tag-high">High</span></td></tr>
+<tr><td>page_view</td><td>All page views (automatic)</td><td>page_title, page_location</td><td><span class="tag tag-med">Auto</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="phase">
+<h3>Phase 2: Engagement Events</h3>
+<table>
+<thead><tr><th>Event Name</th><th>Trigger</th><th>Parameters</th><th>Priority</th></tr></thead>
+<tbody>
+<tr><td>scroll</td><td>User scrolls 75% of page</td><td>page_location, scroll_depth</td><td><span class="tag tag-med">Medium</span></td></tr>
+<tr><td>video_play</td><td>If video content is added</td><td>video_title, video_duration</td><td><span class="tag tag-med">Medium</span></td></tr>
+<tr><td>social_share</td><td>Social share button click</td><td>platform, content</td><td><span class="tag tag-med">Medium</span></td></tr>
+<tr><td>calculator_use</td><td>Interaction with RBF calculator</td><td>advance_amount, revenue_share, cap</td><td><span class="tag tag-high">High</span></td></tr>
+<tr><td>checklist_check</td><td>SOC2 checklist item marked done</td><td>item_number, section</td><td><span class="tag tag-med">Medium</span></td></tr>
+<tr><td>copy_email</td><td>Email address copied/clicked</td><td>page_location</td><td><span class="tag tag-high">High</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Conversion Goals (GA4)</h2>
+<table>
+<thead><tr><th>Goal Name</th><th>Event</th><th>Value</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Lead Capture</td><td>generate_lead</td><td>$50</td><td>Email signup (estimated lead value)</td></tr>
+<tr><td>Contact Request</td><td>form_submit</td><td>$200</td><td>Contact form submission (high intent)</td></tr>
+<tr><td>Stripe Click</td><td>click (payment link)</td><td>$500</td><td>Clicked to pay (high purchase intent)</td></tr>
+<tr><td>Lead Magnet Download</td><td>file_download</td><td>$30</td><td>Downloaded checklist, calculator, etc.</td></tr>
+</tbody>
+</table>
+
+<h2>Google Tag Manager Configuration</h2>
+<h3>Tags Required</h3>
+<ul>
+<li><strong>GA4 Configuration Tag</strong> - GA4 Measurement ID, all pages</li>
+<li><strong>GA4 Event Tags</strong> - One per custom event (see table above)</li>
+<li><strong>Google Ads Conversion Tracking</strong> - After domain + Google Ads setup</li>
+</ul>
+
+<h3>Triggers Required</h3>
+<ul>
+<li><strong>All Pages</strong> - Page View trigger for GA4 config</li>
+<li><strong>Email Forms</strong> - Form submission trigger matching input[type=email] + button click</li>
+<li><strong>Contact Form</strong> - Form submission trigger matching #contact-form</li>
+<li><strong>Payment Links</strong> - Click trigger for links containing "stripe.com" or "buy.stripe.com"</li>
+<li><strong>Downloads</strong> - Click trigger for links ending in .html (lead magnet pages)</li>
+</ul>
+
+<h2>UTM Parameter Strategy</h2>
+<table>
+<thead><tr><th>Campaign Source</th><th>Campaign Medium</th><th>Campaign Term</th><th>URL Example</th></tr></thead>
+<tbody>
+<tr><td>google</td><td>cpc</td><td>soc2+saas</td><td>?utm_source=google&utm_medium=cpc&utm_term=soc2+saas</td></tr>
+<tr><td>linkedin</td><td>paid</td><td>soc2+readiness</td><td>?utm_source=linkedin&utm_medium=paid&utm_term=soc2+readiness</td></tr>
+<tr><td>linkedin</td><td>organic</td><td>blog+soc2</td><td>?utm_source=linkedin&utm_medium=organic&utm_term=blog+soc2</td></tr>
+<tr><td>twitter</td><td>organic</td><td>churn+guide</td><td>?utm_source=twitter&utm_medium=organic&utm_term=churn+guide</td></tr>
+<tr><td>dev.to</td><td>referral</td><td>article+soc2</td><td>?utm_source=dev.to&utm_medium=referral&utm_term=article+soc2</td></tr>
+<tr><td>newsletter</td><td>email</td><td>nurture+soc2</td><td>?utm_source=newsletter&utm_medium=email&utm_term=nurture+soc2</td></tr>
+</tbody>
+</table>
+
+<h2>Reporting Dashboard</h2>
+<h3>Key Metrics to Track</h3>
+<table>
+<thead><tr><th>Metric</th><th>Source</th><th>Frequency</th></tr></thead>
+<tbody>
+<tr><td>New Users</td><td>GA4 - Acquisition</td><td>Weekly</td></tr>
+<tr><td>Lead Capture Rate</td><td>GA4 - Conversions</td><td>Weekly</td></tr>
+<tr><td>Top Traffic Sources</td><td>GA4 - Acquisition</td><td>Weekly</td></tr>
+<tr><td>Page Performance</td><td>GA4 - Engagement</td><td>Bi-weekly</td></tr>
+<tr><td>Event Completions</td><td>GA4 - Events</td><td>Weekly</td></tr>
+<tr><td>Conversion by Campaign</td><td>GA4 - Attribution</td><td>Monthly</td></tr>
+<tr><td>Return on Ad Spend</td><td>Google Ads + GA4</td><td>Monthly</td></tr>
+<tr><td>Lead-to-Customer Rate</td><td>CRM + Stripe</td><td>Monthly</td></tr>
+</tbody>
+</table>
+
+<div class="footer">© 2026 Ironhorse Collective, LLC | Internal analytics documentation</div>
+</div>
+</body>
+</html>

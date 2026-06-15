@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Health Score Template - Ironhorse Collective</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0e17;--bg2:#111827;--text:#e2e8f0;--text2:#94a3b8;--accent:#3b82f6;--gradient:linear-gradient(135deg,#3b82f6,#8b5cf6);--border:#1e293b;--green:#10b981;--yellow:#f59e0b;--red:#ef4444}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:40px 20px}
+.container{max-width:1000px;margin:0 auto}
+h1{font-size:1.8rem;font-weight:800;text-align:center;margin-bottom:8px}
+h1 .g{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{text-align:center;color:var(--text2);margin-bottom:32px}
+.scoring-table{width:100%;border-collapse:collapse;margin-bottom:32px;font-size:.85rem}
+.scoring-table th,.scoring-table td{padding:12px 16px;text-align:left;border:1px solid var(--border)}
+.scoring-table th{background:var(--bg2);font-weight:700;font-size:.75rem;text-transform:uppercase;color:var(--text2)}
+.scoring-table tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+.green{color:var(--green);font-weight:700}
+.yellow{color:var(--yellow);font-weight:700}
+.red{color:var(--red);font-weight:700}
+.section{margin-bottom:32px}
+.section h2{font-size:1.2rem;font-weight:700;margin-bottom:16px}
+.criteria-table{width:100%;border-collapse:collapse;font-size:.9rem}
+.criteria-table th,.criteria-table td{padding:14px;text-align:center;border:1px solid var(--border)}
+.criteria-table th{background:var(--bg2);font-weight:700;font-size:.8rem;text-transform:uppercase}
+.criteria-table td:first-child{text-align:left;font-weight:600}
+.weight{display:inline-block;padding:2px 8px;border-radius:6px;font-size:.7rem;font-weight:700;background:rgba(59,130,246,.15);color:var(--accent)}
+.instructions{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:24px}
+.instructions h3{font-size:1rem;font-weight:700;margin-bottom:12px}
+.instructions ol{padding-left:20px;color:var(--text2)}
+.instructions li{margin-bottom:8px;line-height:1.6}
+.instructions code{background:rgba(59,130,246,.1);padding:2px 6px;border-radius:4px;font-size:.85rem}
+.footer{text-align:center;color:var(--text2);font-size:.8rem;margin-top:24px}
+@media print{body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Customer <span class="g">Health Score</span> Template</h1>
+<p class="subtitle">A framework for building predictive churn models for your SaaS</p>
+
+<div class="instructions">
+<h3>How to Use This Template</h3>
+<ol>
+<li><strong>Define your dimensions.</strong> List every signal that correlates with churn in your business. Pull 12 months of historical data.</li>
+<li><strong>Set your weights.</strong> Weight each dimension based on its predictive power. Adjust over time as you collect more data.</li>
+<li><strong>Score each dimension.</strong> Use the Green/Yellow/Red thresholds below to assign 0-100 points per dimension.</li>
+<li><strong>Calculate the weighted average.</strong> <code>CHS = (Usage x 0.30) + (Support x 0.20) + (Engagement x 0.25) + (Payment x 0.10) + (Qualitative x 0.15)</code></li>
+<li><strong>Define playbooks.</strong> Create automated actions for each health tier (Green = grow, Yellow = engage, Red = save).</li>
+<li><strong>Calibrate quarterly.</strong> Tune weights and thresholds based on actual churn data.</li>
+</ol>
+</div>
+
+<div class="section">
+<h2>1. Dimension Weights</h2>
+<table class="scoring-table">
+<thead><tr><th>Dimension</th><th>Weight</th><th>Data Source</th><th>Update Frequency</th></tr></thead>
+<tbody>
+<tr><td>Product Usage</td><td><span class="weight">30%</span></td><td>Mixpanel / Amplitude / Heap</td><td>Daily</td></tr>
+<tr><td>Support Health</td><td><span class="weight">20%</span></td><td>Zendesk / Intercom</td><td>Weekly</td></tr>
+<tr><td>Engagement</td><td><span class="weight">25%</span></td><td>Product analytics + CRM</td><td>Daily</td></tr>
+<tr><td>Payment History</td><td><span class="weight">10%</span></td><td>Stripe / Chargebee</td><td>Monthly</td></tr>
+<tr><td>Qualitative Sentiment</td><td><span class="weight">15%</span></td><td>NPS / CSAT surveys</td><td>Quarterly</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="section">
+<h2>2. Scoring Criteria Thresholds</h2>
+<table class="criteria-table">
+<thead><tr><th>Dimension</th><th class="green">Green (70-100)</th><th class="yellow">Yellow (40-69)</th><th class="red">Red (0-39)</th></tr></thead>
+<tbody>
+<tr><td>Product Usage</td><td>Daily active use, 3+ features</td><td>Weekly active, 1-2 features</td><td>Less than weekly, 0-1 features</td></tr>
+<tr><td>Support Health</td><td>CSAT > 4.0, no escalations</td><td>CSAT 3.0-4.0, minor escalations</td><td>CSAT < 3.0, frequent escalations</td></tr>
+<tr><td>Engagement</td><td>Login 5+ days/week</td><td>Login 2-4 days/week</td><td>Login < 2 days/week</td></tr>
+<tr><td>Payment</td><td>On-time, no issues</td><td>Late payment 1-2x</td><td>Failed charges or >30 days late</td></tr>
+<tr><td>Qualitative</td><td>NPS 9-10, champion engaged</td><td>NPS 7-8, neutral</td><td>NPS < 6, champion disengaged</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="section">
+<h2>3. Playbook Triggers</h2>
+<table class="scoring-table">
+<thead><tr><th>Health Tier</th><th>Score Range</th><th>Action</th><th>Owner</th><th>Timeline</th></tr></thead>
+<tbody>
+<tr><td class="green">Green</td><td>70-100</td><td>Upsell/cross-sell plays, referral requests, case study invitations</td><td>CSM + Sales</td><td>Within 30 days</td></tr>
+<tr><td class="yellow">Yellow</td><td>40-69</td><td>CSM outreach, executive sponsor check-in, usage review</td><td>CSM</td><td>Within 48 hours</td></tr>
+<tr><td class="red">Red</td><td>0-39</td><td>Immediate CSM escalation, executive intervention, retention offer</td><td>CSM + VP CS</td><td>Within 24 hours</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="section">
+<h2>4. Implementation Checklist</h2>
+<table class="scoring-table">
+<thead><tr><th>#</th><th>Task</th><th>Owner</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Pull 12 months of churn data and identify behavioral patterns</td><td>Data Team</td><td>☐</td></tr>
+<tr><td>2</td><td>Define your scoring dimensions and weights</td><td>CS + Product</td><td>☐</td></tr>
+<tr><td>3</td><td>Build the scoring model (spreadsheet or tool)</td><td>CS + Engineering</td><td>☐</td></tr>
+<tr><td>4</td><td>Run against historical data and calibrate</td><td>Data Team</td><td>☐</td></tr>
+<tr><td>5</td><td>Set up data pipelines from product, support, CRM, and billing</td><td>Engineering</td><td>☐</td></tr>
+<tr><td>6</td><td>Define playbook triggers for each health tier</td><td>CS Team</td><td>☐</td></tr>
+<tr><td>7</td><td>Train CS team on health score interpretation</td><td>VP CS</td><td>☐</td></tr>
+<tr><td>8</td><td>Launch weekly Health Review meeting</td><td>VP CS</td><td>☐</td></tr>
+<tr><td>9</td><td>Create automated alerts for tier changes</td><td>Engineering</td><td>☐</td></tr>
+<tr><td>10</td><td>Build executive dashboard</td><td>Data Team</td><td>☐</td></tr>
+<tr><td>11</td><td>Review and refine model quarterly</td><td>CS + Data</td><td>☐</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="footer">© 2026 Ironhorse Collective, LLC | Free Download</div>
+</div>
+</body>
+</html>
