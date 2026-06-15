@@ -111,3 +111,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+\n# Data Analytics agent registered in departments/__init__.py\n# To use: from departments import DataAnalyticsAgent\n
